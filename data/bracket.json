@@ -1,8 +1,15 @@
 {
-  "round": "Semifinals",
+  "round": "Quarterfinals",
   "matches": [
     { "id": 1, "team1": "Red", "team2": "Blue", "score1": null, "score2": null },
-    { "id": 2, "team1": "Green", "team2": "Yellow", "score1": null, "score2": null }
+    { "id": 2, "team1": "Green", "team2": "Yellow", "score1": null, "score2": null },
+    { "id": 3, "team1": "Purple", "team2": "Orange", "score1": null, "score2": null },
+    { "id": 4, "team1": "Pink", "team2": "Cyan", "score1": null, "score2": null }
   ],
+  "next_round": [
+    { "id": 5, "team1": null, "team2": null, "score1": null, "score2": null },
+    { "id": 6, "team1": null, "team2": null, "score1": null, "score2": null }
+  ],
+  "final": { "id": 7, "team1": null, "team2": null, "score1": null, "score2": null },
   "updated": null
 }
