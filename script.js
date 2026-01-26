@@ -1,13 +1,12 @@
-// Fetch bracket JSON and render it
 fetch("./data/bracket.json")
   .then(res => res.json())
   .then(data => {
-    document.getElementById("round").textContent = data.round;
-
     const container = document.getElementById("bracket");
     container.innerHTML = "";
 
-    data.matches.forEach(match => {
+    document.getElementById("round").textContent = data.round;
+
+    function renderMatch(match) {
       const div = document.createElement("div");
       div.className = "match";
 
@@ -18,10 +17,18 @@ fetch("./data/bracket.json")
 
       div.innerHTML = `
         <strong>Match ${match.id}</strong><br>
-        ${match.team1} vs ${match.team2}<br>
+        ${match.team1 || "TBD"} vs ${match.team2 || "TBD"}<br>
         Score: ${score}
       `;
-
       container.appendChild(div);
-    });
+    }
+
+    container.innerHTML += "<h2>Quarterfinals</h2>";
+    data.matches.forEach(renderMatch);
+
+    container.innerHTML += "<h2>Semifinals</h2>";
+    data.next_round.forEach(renderMatch);
+
+    container.innerHTML += "<h2>Final</h2>";
+    renderMatch(data.final);
   });
