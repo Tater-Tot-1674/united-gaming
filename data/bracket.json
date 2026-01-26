@@ -1,0 +1,8 @@
+{
+  "round": "Semifinals",
+  "matches": [
+    { "id": 1, "team1": "Red", "team2": "Blue", "score1": null, "score2": null },
+    { "id": 2, "team1": "Green", "team2": "Yellow", "score1": null, "score2": null }
+  ],
+  "updated": null
+}
