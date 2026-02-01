@@ -2,7 +2,7 @@ const container = document.getElementById('announcements');
 
 async function fetchAnnouncements() {
   try {
-    const res = await fetch('/data/announcements.json', { cache: 'no-store' });
+    const res = await fetch('data/announcements.json', { cache: 'no-store' });
     const data = await res.json();
     renderAnnouncements(data.reverse());
   } catch (err) {
