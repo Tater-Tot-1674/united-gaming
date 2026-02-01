@@ -32,4 +32,3 @@ async function loadProfiles() {
 
 loadProfiles();
 setInterval(loadProfiles, 5000);
-
