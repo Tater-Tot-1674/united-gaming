@@ -1,29 +1,28 @@
-const container = document.getElementById('announcements');
+const announcementsContainer = document.getElementById('announcements');
 
 async function fetchAnnouncements() {
   try {
     const res = await fetch('data/announcements.json', { cache: 'no-store' });
     const data = await res.json();
-    renderAnnouncements(data.reverse());
+    updateAnnouncements(data);
   } catch (err) {
-    console.error(err);
+    console.error('Failed to fetch announcements:', err);
   }
 }
 
-function renderAnnouncements(data) {
-  container.innerHTML = '';
-
-  data.forEach(a => {
+function updateAnnouncements(data) {
+  announcementsContainer.innerHTML = '';
+  data.forEach(post => {
     const div = document.createElement('div');
     div.className = 'announcement';
     div.innerHTML = `
-      <strong>${a.author}</strong> • ${new Date(a.date).toLocaleString()}<br>
-      ${a.content}
+      <h3>${post.author}</h3>
+      <p>${post.content}</p>
+      <small>${new Date(post.date).toLocaleString()}</small>
     `;
-    container.appendChild(div);
+    announcementsContainer.appendChild(div);
   });
 }
 
 fetchAnnouncements();
 setInterval(fetchAnnouncements, 5000);
-
