@@ -1,34 +1,28 @@
-const container = document.getElementById('leaderboard');
+const leaderboardContainer = document.getElementById('leaderboard');
 
-async function loadLeaderboard() {
+async function fetchLeaderboard() {
   try {
     const res = await fetch('data/leaderboardweekly.json', { cache: 'no-store' });
     const data = await res.json();
-
-    container.innerHTML = '';
-
-    if (!data.length) {
-      container.innerHTML = '<p>No matches yet.</p>';
-      return;
-    }
-
-    data.forEach((p, i) => {
-      const row = document.createElement('div');
-      row.className = 'player-row';
-      row.innerHTML = `
-        <span>#${i + 1}</span>
-        <span>${p.name}</span>
-        <span>${p.points} pts</span>
-      `;
-      container.appendChild(row);
-    });
-
+    updateLeaderboard(data);
   } catch (err) {
-    console.error(err);
-    container.innerHTML = '<p>Error loading leaderboard.</p>';
+    console.error('Failed to fetch leaderboard:', err);
   }
 }
 
-loadLeaderboard();
-setInterval(loadLeaderboard, 5000);
+function updateLeaderboard(data) {
+  leaderboardContainer.innerHTML = '';
+  data.forEach(player => {
+    const div = document.createElement('div');
+    div.className = 'player-row';
+    div.innerHTML = `
+      <span class="rank">${player.rank}</span>
+      <span class="name">${player.name}</span>
+      <span class="points">${player.points}</span>
+    `;
+    leaderboardContainer.appendChild(div);
+  });
+}
 
+fetchLeaderboard();
+setInterval(fetchLeaderboard, 5000);
