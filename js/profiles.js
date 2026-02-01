@@ -2,7 +2,7 @@ const container = document.getElementById('profiles');
 
 async function loadProfiles() {
   try {
-    const res = await fetch('/data/players.json', { cache: 'no-store' });
+    const res = await fetch('data/players.json', { cache: 'no-store' });
     const players = await res.json();
 
     container.innerHTML = '';
