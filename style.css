@@ -1,29 +1,60 @@
 body {
-  font-family: sans-serif;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #fff;
+  margin: 0;
   padding: 20px;
-  background: #121212;
-  color: #f0f0f0;
+}
+
+nav {
+  margin-bottom: 20px;
+}
+
+nav a {
+  color: #00bfff;
+  margin-right: 15px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 h1 {
   margin-bottom: 20px;
-  color: #ffcc00;
 }
 
-h2 {
-  margin-top: 20px;
-  margin-bottom: 10px;
-  color: #ffcc00;
-}
-
-.match {
-  border: 1px solid #666;
-  padding: 10px;
+.card {
+  background: #1c1c1c;
+  padding: 15px;
+  border-radius: 10px;
   margin-bottom: 15px;
-  border-radius: 5px;
-  background: #1e1e1e;
 }
 
-em {
-  color: #888;
+.player-row {
+  display: flex;
+  justify-content: space-between;
+  background: #1e1e1e;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 6px;
+}
+
+.profile-card {
+  background: #1c1c1c;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.bracket-match {
+  background: #1c1c1c;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+
+.announcement {
+  background: #1c1c1c;
+  padding: 15px;
+  border-left: 5px solid #00bfff;
+  margin-bottom: 10px;
+  border-radius: 6px;
 }
