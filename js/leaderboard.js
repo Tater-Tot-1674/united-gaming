@@ -2,7 +2,7 @@ const container = document.getElementById('leaderboard');
 
 async function loadLeaderboard() {
   try {
-    const res = await fetch('/data/leaderboard_weekly.json', { cache: 'no-store' });
+    const res = await fetch('/data/leaderboardweekly.json', { cache: 'no-store' });
     const data = await res.json();
 
     container.innerHTML = '';
