@@ -1,29 +1,37 @@
-const bracketContainer = document.getElementById('bracket');
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById('bracket');
+  if (!container) return; // prevents crash
 
-async function fetchBracket() {
-  try {
-    const res = await fetch('/data/bracket.json', { cache: 'no-store' });
-    const data = await res.json();
-    renderBracket(data);
-  } catch (err) {
-    console.error('Bracket load error:', err);
+  async function loadBracket() {
+    try {
+      const res = await fetch('/data/bracket.json', { cache: 'no-store' });
+      const matches = await res.json();
+
+      container.innerHTML = '';
+
+      if (!matches.length) {
+        container.innerHTML = '<p>No bracket generated yet.</p>';
+        return;
+      }
+
+      matches.forEach(match => {
+        const div = document.createElement('div');
+        div.className = 'bracket-match';
+        div.innerHTML = `
+          <strong>${match.player1 || 'TBD'}</strong>
+          vs
+          <strong>${match.player2 || 'TBD'}</strong>
+        `;
+        container.appendChild(div);
+      });
+
+    } catch (err) {
+      console.error(err);
+      container.innerHTML = '<p>Error loading bracket.</p>';
+    }
   }
-}
 
-function renderBracket(data) {
-  bracketContainer.innerHTML = '';
-
-  data.forEach(match => {
-    const div = document.createElement('div');
-    div.className = 'bracket-match';
-    div.innerHTML = `
-      <strong>${match.player1}</strong> vs <strong>${match.player2}</strong>
-      <br>Winner: ${match.winner || 'TBD'}
-    `;
-    bracketContainer.appendChild(div);
-  });
-}
-
-fetchBracket();
-setInterval(fetchBracket, 5000);
+  loadBracket();
+  setInterval(loadBracket, 5000);
+});
 
