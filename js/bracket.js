@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function loadBracket() {
     try {
-      const res = await fetch('/data/bracket.json', { cache: 'no-store' });
+      const res = await fetch('data/bracket.json', { cache: 'no-store' });
       const matches = await res.json();
 
       container.innerHTML = '';
