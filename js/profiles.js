@@ -12,15 +12,20 @@ async function fetchProfiles() {
 
 function updateProfiles(data) {
   profileContainer.innerHTML = '';
+
+  if (!Array.isArray(data)) return;
+
   data.forEach(player => {
     const div = document.createElement('div');
     div.className = 'profile-card';
+
     div.innerHTML = `
       <h3>${player.name}</h3>
-      <p>Rank: ${player.rank || 'Unranked'}</p>
-      <p>XP: ${player.xp || 0}</p>
+      <p>Rank: ${player.rank || 'Rookie'}</p>
+      <p>XP: ${player.xp ?? 0}</p>
       <p>Team: ${player.team || 'None'}</p>
     `;
+
     profileContainer.appendChild(div);
   });
 }
