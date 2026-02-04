@@ -1,30 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>KartKings</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Tournaments</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="start.html">Start</a>
-    <a href="tournaments.html">Tournaments</a>
-    <a href="leaderboard.html">Leaderboard</a>
-    <a href="profiles.html">Profiles</a>
-    <a href="announcements.html">News</a>
-  </nav>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="leaderboard.html">Leaderboard</a>
+  <a href="profiles.html">Profiles</a>
+</nav>
 
-  <header>
-    <h1>🏎️ KartKings</h1>
-    <p>The competitive SmashKarts league</p>
-  </header>
+<h1>🏁 Tournament Bracket</h1>
+<div id="bracket" class="card"></div>
 
-  <section class="card">
-    <h2>Live League System</h2>
-    <p>Ranks, tournaments, profiles, and leaderboards update automatically from the Discord bot.</p>
-  </section>
-
+<script src="js/bracket.js"></script>
 </body>
 </html>
