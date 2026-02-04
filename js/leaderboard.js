@@ -12,14 +12,19 @@ async function fetchLeaderboard() {
 
 function updateLeaderboard(data) {
   leaderboardContainer.innerHTML = '';
+
+  if (!Array.isArray(data)) return;
+
   data.forEach(player => {
     const div = document.createElement('div');
     div.className = 'player-row';
+
     div.innerHTML = `
-      <span class="rank">${player.rank}</span>
+      <span class="rank">${player.rank ?? '-'}</span>
       <span class="name">${player.name}</span>
-      <span class="points">${player.points}</span>
+      <span class="points">${player.xp ?? 0}</span>
     `;
+
     leaderboardContainer.appendChild(div);
   });
 }
