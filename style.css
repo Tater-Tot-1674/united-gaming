@@ -1,126 +1,192 @@
-/* GLOBAL RESET */
+/* =========================
+   GLOBAL RESET
+========================= */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* PAGE */
+/* =========================
+   BODY / BASE
+========================= */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #0e0e12;
-  color: #ffffff !important; /* force white text */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(180deg, #0c0c11 0%, #12121a 100%);
+  color: #ffffff;
   line-height: 1.6;
 }
 
-/* LINKS */
+/* =========================
+   LAYOUT CONTAINER
+========================= */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 25px;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+nav {
+  background: #14141b;
+  padding: 14px 24px;
+  border-bottom: 1px solid #2a2a35;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav a {
+  color: #6ea8ff;
+  font-weight: bold;
+  margin-right: 20px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #ffffff;
+}
+
+/* =========================
+   HEADER / HERO
+========================= */
+header {
+  background: #18181f;
+  padding: 24px;
+  text-align: center;
+  border-bottom: 2px solid #2a2a35;
+}
+
+header h1 {
+  font-size: 34px;
+  margin-bottom: 6px;
+}
+
+header p {
+  color: #9aa4b2;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-bottom: 10px;
+  color: #6ea8ff;
+}
+
+/* =========================
+   CARDS (MAIN UI BLOCK)
+========================= */
+.card,
+.profile-card,
+.player-row,
+.bracket-match,
+.announcement-card,
+.home-card,
+.info-box,
+.hero {
+  background: #1c1c25;
+  border: 1px solid #2a2a35;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 16px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover,
+.profile-card:hover,
+.player-row:hover,
+.bracket-match:hover,
+.announcement-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
+}
+
+/* =========================
+   TEXT STYLES
+========================= */
+.rank {
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+.name {
+  color: #6ea8ff;
+  font-weight: bold;
+}
+
+.points {
+  color: #33d17a;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+button {
+  background: #6ea8ff;
+  color: #000;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background: #8fc2ff;
+  transform: scale(1.03);
+}
+
+/* =========================
+   LINKS
+========================= */
 a {
   color: #6ea8ff;
   text-decoration: none;
 }
+
 a:hover {
   color: #ffffff;
 }
 
-/* HEADER */
-header {
-  background: #18181f;
-  padding: 18px 25px;
-  font-size: 24px;
-  font-weight: bold;
-  border-bottom: 2px solid #2a2a35;
-  color: #ffffff !important;
+/* =========================
+   LIST STYLING (for profiles etc.)
+========================= */
+.player-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* NAV */
-nav {
-  background: #14141b;
-  padding: 12px 20px;
-  border-bottom: 1px solid #2a2a35;
-}
-nav a {
-  font-weight: bold;
-  margin-right: 18px;
-}
-
-/* MAIN CONTENT */
-.container {
-  padding: 20px;
-}
-
-/* CARDS */
-.player-row,
-.profile-card,
-.bracket-match,
-.announcement-card {
-  background: #1c1c25;
-  border: 1px solid #2a2a35;
-  border-radius: 8px;
-  padding: 14px;
-  margin-bottom: 12px;
-  color: #ffffff !important; /* override any black text */
-}
-
-/* TEXT CLASSES */
-.rank {
-  font-weight: bold;
-  color: #ffcc00 !important;
-}
-
-.name {
-  color: #6ea8ff !important;
-}
-
-.points {
-  color: #33d17a !important;
-}
-
-/* HEADINGS */
-h1, h2, h3, h4, h5, p, span, div {
-  color: #ffffff !important;
-}
-
-/* BUTTONS */
-button {
-  background: #6ea8ff;
-  color: #000000;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-}
-button:hover {
-  background: #90c2ff;
-}
-
-/* SCROLLBAR (optional clean look) */
+/* =========================
+   SCROLLBAR
+========================= */
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #2a2a35;
   border-radius: 4px;
 }
-/* HERO / INFO BOX ON HOME */
-.hero,
-.info-box,
-.home-card,
-.intro-card {
-  background: #1c1c25 !important;
-  color: #ffffff !important;
-  border: 1px solid #2a2a35;
-  border-radius: 10px;
-  padding: 22px;
-  margin-top: 20px;
-}
 
-/* In case it's just a plain div inside container */
-.container > div:first-child {
-  background: #1c1c25;
-  color: #ffffff;
-  border: 1px solid #2a2a35;
-  border-radius: 10px;
-  padding: 22px;
+/* =========================
+   FOOTER (future proof)
+========================= */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  border-top: 1px solid #2a2a35;
+  margin-top: 40px;
 }
 
