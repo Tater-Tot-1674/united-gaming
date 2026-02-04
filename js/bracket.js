@@ -12,13 +12,24 @@ async function fetchBracket() {
 
 function updateBracket(data) {
   bracketContainer.innerHTML = '';
-  data.forEach(match => {
+
+  if (!data.rounds || !data.rounds.length) return;
+
+  const firstRound = data.rounds[0];
+
+  firstRound.forEach(match => {
     const div = document.createElement('div');
     div.className = 'match';
-    div.textContent = `${match.player1} vs ${match.player2}`;
+
+    const p1 = match.player1 || 'BYE';
+    const p2 = match.player2 || 'BYE';
+    const winner = match.winner ? ` 🏆 ${match.winner}` : '';
+
+    div.textContent = `${p1} vs ${p2}${winner}`;
     bracketContainer.appendChild(div);
   });
 }
 
 fetchBracket();
 setInterval(fetchBracket, 5000);
+
